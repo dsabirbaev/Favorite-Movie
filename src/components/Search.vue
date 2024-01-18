@@ -1,11 +1,13 @@
 <template>
     <form @submit.prevent="searchStore.getMovies(searchMovie)">
         <input type="text" class="search-input" placeholder="Input movie" v-model="searchMovie">
-    </form>
+        <Loader/>
+   </form>
 </template>
 
 <script setup>
     import { ref } from 'vue';
+    import Loader from "../components/Loader.vue";
     import {useSearchStore} from "../stores/SearchStore";
     const searchStore = useSearchStore();
     const searchMovie = ref('');
